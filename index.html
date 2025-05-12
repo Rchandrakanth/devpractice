@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chandrakanth - IT Professional Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, transparent 20%, var(--primary-color) 70%);
+            opacity: 0.2;
+            z-index: 1;
+        }
+        
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        nav ul li a {
+            display: block;
+            padding: 1rem 1.5rem;
+            color: var(--dark-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .section {
+            margin: 3rem 0;
+            padding: 2rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .section-title {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--secondary-color);
+            display: inline-block;
+        }
+        
+        .profile-info {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .profile-pic {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            border: 5px solid var(--secondary-color);
+        }
+        
+        .profile-text {
+            flex: 1;
+        }
+        
+        .profile-text h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .profile-text h2 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-weight: 400;
+        }
+        
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        
+        .skill-card {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 1.5rem;
+            transition: var(--transition);
+            border-top: 3px solid var(--secondary-color);
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .skill-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .skill-list {
+            list-style: none;
+        }
+        
+        .skill-list li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .skill-list li:before {
+            content: "▹";
+            color: var(--secondary-color);
+            position: absolute;
+            left: 0;
+        }
+        
+        .experience-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .experience-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+        
+        .experience-company {
+            color: var(--secondary-color);
+            font-weight: 600;
+        }
+        
+        .experience-date {
+            color: #777;
+            font-style: italic;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: var(--transition);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            height: 180px;
+            background-color: var(--light-color);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 3rem;
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+        
+        .project-tag {
+            background-color: var(--light-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1rem;
+            background-color: var(--light-color);
+            border-radius: 8px;
+            transition: var(--transition);
+        }
+        
+        .contact-card:hover {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+        
+        .contact-icon {
+            background-color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+        
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background-color: var(--light-color);
+            border-radius: 5px;
+            margin-top: 0.5rem;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            border-radius: 5px;
+            background-color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+            
+            .profile-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .experience-title {
+                flex-direction: column;
+                gap: 0.5rem;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-bg"></div>
+        <div class="header-content">
+            <h1>Chandrakanth Rampally - Hyderabad</h1>
+            <h2>IT Infrastructure & DevOps Specialist</h2>
+        </div>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section id="about" class="section">
+            <h2 class="section-title">About Me</h2>
+            <div class="profile-info">
+                <div class="profile-pic">CK</div>
+                <div class="profile-text">
+                    <h1>Chandrakanth</h1>
+                    <h2>IT Infrastructure & DevOps Specialist</h2>
+                    <p>
+                        I am a dedicated IT professional with expertise in networking, Windows and Linux administration, and DevOps practices. With a strong foundation in infrastructure management and automation, I strive to optimize system performance, enhance security, and streamline operational workflows.
+                    </p>
+                    <p>
+                        My approach combines technical expertise with collaborative problem-solving to deliver robust and scalable IT solutions. I am passionate about continuous learning and implementing best practices in technology environments.
+                    </p>
+                </div>
+            </div>
+        </section>
+        
+        <section id="skills" class="section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-container">
+                <div class="skill-card">
+                    <h3>Networking</h3>
+                    <ul class="skill-list">
+                        <li>TCP/IP Protocols & Troubleshooting</li>
+                        <li>Cisco & Network Devices Configuration</li>
+                        <li>VPN & Secure Connections</li>
+                        <li>Network Security & Firewall Implementation</li>
+                        <li>Load Balancing Solutions</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Windows Administration</h3>
+                    <ul class="skill-list">
+                        <li>Active Directory Management</li>
+                        <li>Windows Server Deployment & Maintenance</li>
+                        <li>Group Policy Configuration</li>
+                        <li>Microsoft Exchange Server</li>
+                        <li>PowerShell Scripting</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>Linux Administration</h3>
+                    <ul class="skill-list">
+                        <li>Server Configuration & Hardening</li>
+                        <li>Shell Scripting (Bash)</li>
+                        <li>Service Management (systemd)</li>
+                        <li>Performance Monitoring & Optimization</li>
+                        <li>LAMP/LEMP Stack Configuration</li>
+                    </ul>
+                </div>
+                
+                <div class="skill-card">
+                    <h3>DevOps</h3>
+                    <ul class="skill-list">
+                        <li>CI/CD Pipeline Implementation</li>
+                        <li>Docker & Container Orchestration</li>
+                        <li>Infrastructure as Code (Terraform, Ansible)</li>
+                        <li>Git & Version Control Systems</li>
+                        <li>Monitoring & Logging (ELK, Prometheus)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <section id="experience" class="section">
+            <h2 class="section-title">Professional Experience</h2>
+            
+            <div class="experience-item">
+                <div class="experience-title">
+                    <h3>Senior Systems Administrator</h3>
+                    <div class="experience-company">Tech Solutions Inc.</div>
+                    <div class="experience-date">Jan 2023 - Present</div>
+                </div>
+                <p>
+                    Led infrastructure management and optimization efforts for enterprise clients. Implemented DevOps practices that resulted in 40% faster deployment cycles and improved system reliability.
+                </p>
+                <ul class="skill-list">
+                    <li>Managed hybrid cloud infrastructure across AWS and on-premises environments</li>
+                    <li>Implemented automated disaster recovery solutions with 99.9% uptime</li>
+                    <li>Orchestrated migration of legacy systems to containerized microservices</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-title">
+                    <h3>Network & Systems Administrator</h3>
+                    <div class="experience-company">Global Data Systems</div>
+                    <div class="experience-date">Mar 2020 - Dec 2022</div>
+                </div>
+                <p>
+                    Oversaw network infrastructure and system administration for a mid-sized organization with multiple office locations. Streamlined IT operations and enhanced security posture.
+                </p>
+                <ul class="skill-list">
+                    <li>Redesigned network architecture, improving performance by 35%</li>
+                    <li>Implemented centralized authentication and access management</li>
+                    <li>Developed automation scripts for routine system maintenance tasks</li>
+                </ul>
+            </div>
+            
+            <div class="experience-item">
+                <div class="experience-title">
+                    <h3>IT Support Specialist</h3>
+                    <div class="experience-company">Innovative Technologies</div>
+                    <div class="experience-date">Jun 2018 - Feb 2020</div>
+                </div>
+                <p>
+                    Provided technical support for hardware, software, and network issues. Contributed to system documentation and user training initiatives.
+                </p>
+                <ul class="skill-list">
+                    <li>Resolved 500+ technical support tickets monthly with 95% satisfaction rate</li>
+                    <li>Assisted in Windows Server 2019 deployment across the organization</li>
+                    <li>Created comprehensive technical documentation for IT procedures</li>
+                </ul>
+            </div>
+        </section>
+        
+        <section id="projects" class="section">
+            <h2 class="section-title">Key Projects</h2>
+            
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img">🔄</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Automated Deployment Pipeline</h3>
+                        <p>Developed a comprehensive CI/CD pipeline using Jenkins, Docker, and Ansible, reducing deployment time by 70% and minimizing human error.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">DevOps</span>
+                            <span class="project-tag">CI/CD</span>
+                            <span class="project-tag">Docker</span>
+                            <span class="project-tag">Ansible</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">🔒</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Network Security Overhaul</h3>
+                        <p>Implemented a layered security approach with next-gen firewalls, IDS/IPS, and zero-trust architecture, enhancing security posture against modern threats.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Networking</span>
+                            <span class="project-tag">Security</span>
+                            <span class="project-tag">Firewall</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-img">💻</div>
+                    <div class="project-content">
+                        <h3 class="project-title">Hybrid Cloud Migration</h3>
+                        <p>Led the migration of business-critical applications to a hybrid cloud environment, ensuring seamless integration between on-premises and cloud services.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Cloud</span>
+                            <span class="project-tag">Migration</span>
+                            <span class="project-tag">Infrastructure</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="contact" class="section">
+            <h2 class="section-title">Contact Information</h2>
+            
+            <div class="contact-container">
+                <div class="contact-card">
+                    <div class="contact-icon">✉️</div>
+                    <div>
+                        <h4>Email</h4>
+                        <p>chandrakanth@example.com</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📱</div>
+                    <div>
+                        <h4>Phone</h4>
+                        <p>+1 (555) 123-4567</p>
+                    </div>
+                </div>
+                
+                <div class="contact-card">
+                    <div class="contact-icon">📍</div>
+                    <div>
+                        <h4>Location</h4>
+                        <p>San Francisco, CA</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 Chandrakanth - IT Infrastructure & DevOps Specialist</p>
+            <div class="social-links">
+                <a href="#" class="social-link">in</a>
+                <a href="#" class="social-link">gh</a>
+                <a href="#" class="social-link">tw</a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
