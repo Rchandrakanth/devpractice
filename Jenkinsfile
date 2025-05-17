@@ -7,12 +7,12 @@ pipeline {
 		stages{
 			stage("cleanup workspace"){
 				  steps {
-			  	clenws()
+			  	clenWs()
 				}
 			}
 			stage ("checkout form SCM"){
 			  	steps {
-			  	git branch: 'master', credentialsId: 'github', url: 'https://github.com/Rchandrakanth/devpractice'
+			  	git branch: 'master', credentialsId: 'github', url: 'https://github.com/Rchandrakanth/devpractice.git'
 					
 				}
 			}
